@@ -254,7 +254,7 @@ class Generator extends \yii\gii\generators\crud\Generator
         $this->moduleNs = \yii\helpers\StringHelper::dirname(ltrim($this->controllerNs, '\\'));
         $controllerName = substr(\yii\helpers\StringHelper::basename($this->controllerClass),0,-10);
         
-        $this->migrationClass = 'm' . date("ymd_H") . '0101_' . $controllerName . '_access'; 
+        $this->migrationClass = 'm' . gmdate('ymd_His') . "_" . $controllerName . '_access'; 
         
         if ($this->singularEntities) {
             $this->modelClass = Inflector::singularize($this->modelClass);
